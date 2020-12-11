@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: helloworldapi
+build:
+  artifacts:
+  - image: docker.pkg.github.com/sam-atkins/helloworldapi/helloworldapi
+    context: .
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - k8s/helloworld-api-load-balancer.yaml
+    - k8s/helloworld-api-pod.yaml
