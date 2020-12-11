@@ -1,4 +1,7 @@
 # Hello World API
+
+![Tests](https://github.com/sam-atkins/helloworldapi/workflows/CI/badge.svg)
+
 - [Hello World API](#hello-world-api)
   - [Kubernetes](#kubernetes)
     - [Create secret to pull image from Github](#create-secret-to-pull-image-from-github)
