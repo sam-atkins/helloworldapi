@@ -5,6 +5,7 @@
     - [Local dev using Skaffold](#local-dev-using-skaffold)
     - [Run locally using Kubectrl](#run-locally-using-kubectrl)
   - [Local Docker commands](#local-docker-commands)
+  - [Unit Tests](#unit-tests)
 
 ## Kubernetes
 
@@ -106,4 +107,10 @@ $ docker build -t helloworldapi .
 
 # run using local image
 $ docker run -p 8080:8080 -it helloworldapi
+```
+
+## Unit Tests
+
+```bash
+go test -v ./...
 ```
