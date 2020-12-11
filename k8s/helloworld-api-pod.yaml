@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: helloworld-api
-    image: docker.pkg.github.com/sam-atkins/helloworldapi/helloworldapi:0.1.0
+    image: docker.pkg.github.com/sam-atkins/helloworldapi/helloworldapi:0.2.0
     resources:
       limits:
         memory: "128Mi"
