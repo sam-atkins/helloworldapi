@@ -11,5 +11,5 @@ build:
 deploy:
   kubectl:
     manifests:
+    - k8s/helloworld-api-deployment.yaml
     - k8s/helloworld-api-load-balancer.yaml
-    - k8s/helloworld-api-pod.yaml

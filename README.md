@@ -4,13 +4,20 @@
 
 - [Hello World API](#hello-world-api)
   - [Kubernetes](#kubernetes)
+    - [Prerequisites](#prerequisites)
     - [Create secret to pull image from Github](#create-secret-to-pull-image-from-github)
     - [Local dev using Skaffold](#local-dev-using-skaffold)
-    - [Run locally using Kubectrl](#run-locally-using-kubectrl)
+    - [Run locally using kubectl](#run-locally-using-kubectl)
   - [Local Docker commands](#local-docker-commands)
   - [Unit Tests](#unit-tests)
 
 ## Kubernetes
+
+### Prerequisites
+
+- [minikube](https://minikube.sigs.k8s.io/docs/)
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+- [Skaffold](https://skaffold.dev)
 
 ### Create secret to pull image from Github
 
@@ -18,7 +25,7 @@
 2. Base-64 encode <your-github-username>:<TOKEN>
 
     ```bash
-    $ echo -n sam-atkins:<TOKEN> | base64
+    $ echo -n <github-username>:<TOKEN> | base64
     <AUTH>
     ```
 
@@ -41,13 +48,15 @@
 
 ### Local dev using Skaffold
 
-Recommended as it watches for file changes locally and allows quicker develop.
-
-Install [Skaffold](https://skaffold.dev).
-
-Once installed, run this command:
+Skaffold watches for file changes and rebuilds thereby allowing for quicker local development.
 
 ```bash
+# start minikube
+$ minkube start
+
+# switch to using an existing namespace
+$ kubectl config set-context --current --namespace <NAMESPACE>
+
 $ skaffold dev --port-forward
 
 Port forwarding service/helloworld-api-load-balancer in namespace devsam, remote port 8080 -> address 127.0.0.1 port 8080
@@ -66,7 +75,7 @@ Date: Fri, 11 Dec 2020 12:12:45 GMT
 }
 ```
 
-### Run locally using Kubectrl
+### Run locally using kubectl
 
 Instructions for running on macOS using minikube
 
@@ -115,5 +124,5 @@ $ docker run -p 8080:8080 -it helloworldapi
 ## Unit Tests
 
 ```bash
-go test -v ./...
+go test -v -cover
 ```
