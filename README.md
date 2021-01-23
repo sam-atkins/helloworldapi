@@ -9,6 +9,7 @@
     - [Local dev using Skaffold](#local-dev-using-skaffold)
     - [Run locally using kubectl](#run-locally-using-kubectl)
   - [Local Docker commands](#local-docker-commands)
+  - [Publishing Docker Images](#publishing-docker-images)
   - [Unit Tests](#unit-tests)
 
 ## Kubernetes
@@ -119,6 +120,20 @@ $ docker build -t helloworldapi .
 
 # run using local image
 $ docker run -p 8080:8080 -it helloworldapi
+```
+
+## Publishing Docker Images
+
+Merges to the main branch will trigger the CI action to test the code and if the tests are green to publish a "latest" image.
+
+In order to tag an image, add a git tag against the main branch and push. This will trigger CI and publish the versioned image.
+
+```bash
+# add a tag
+git tag <tag e.g. v0.3.0> -am <tag>
+
+# push the tag to remote which will trigger CI
+git push --follow-tags
 ```
 
 ## Unit Tests
