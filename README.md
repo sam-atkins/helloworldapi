@@ -53,7 +53,7 @@ Skaffold watches for file changes and rebuilds thereby allowing for quicker loca
 
 ```bash
 # start minikube
-$ minkube start
+$ minikube start
 
 # switch to using an existing namespace
 $ kubectl config set-context --current --namespace <NAMESPACE>
